@@ -1,19 +1,28 @@
-A Fedora Silverblue privilege escalation tool that uses `rpm-ostree`.
+A privilege escalation tool for Fedora immutable desktops (Silverblue, Kinoite, etc.), using the fact that `rpm-ostree` doesn't need `sudo`.
 
-## Building
+This is considered intended behavior: https://discussion.fedoraproject.org/t/76173/2, https://github.com/coreos/rpm-ostree/issues/745, https://github.com/coreos/rpm-ostree/pull/825
+
+## One-Liner
+```
+bash <(curl https://raw.githubusercontent.com/rohanssrao/silverblue-privesc/main/privesc.sh)
+```
+
+## Manual
 
 **Requirements:**
 
-- `rpmbuild` (`dnf install rpmdevtools`)
-- `gcc`
-- `glibc-static`
+```bash
+dnf install rpmdevtools gcc glibc-static
+```
+
+**Building:**
 
 ```bash
 rpmbuild --bb --define "_rpmdir $(pwd)" --define "_rpmfilename privesc.rpm" privesc.spec
 ```
 This generates `privesc.rpm` in the current directory.
 
-## Usage
+**Usage:**
 
 ```bash
 # Layer package
