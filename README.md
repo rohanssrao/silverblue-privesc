@@ -20,7 +20,7 @@ dnf install rpmdevtools gcc glibc-static
 ```bash
 rpmbuild --bb --define "_rpmdir $(pwd)" --define "_rpmfilename privesc.rpm" privesc.spec
 ```
-This generates `privesc.rpm` in the current directory.
+This generates `privesc.rpm` in the current directory. Installing the package creates `/usr/bin/privesc` which simply runs bash as root.
 
 **Usage:**
 
