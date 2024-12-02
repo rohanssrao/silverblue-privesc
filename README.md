@@ -1,3 +1,5 @@
+> **Update:** This behavior was fixed in Fedora 41: [GitLab](https://gitlab.com/fedora/ostree/sig/-/issues/7#note_2184185447), [src.fedoraproject.org](https://src.fedoraproject.org/rpms/fedora-release/pull-request/336)
+
 A privilege escalation proof-of-concept for Fedora immutable desktops, using the fact that `rpm-ostree install` doesn't ask for the user's password to install local packages.
 
 This is a demonstration that any program running as a member of the `wheel` group (e.g., a `pip` or `npm` package, or `curl | bash`) is able to execute arbitrary code as root without user interaction.
